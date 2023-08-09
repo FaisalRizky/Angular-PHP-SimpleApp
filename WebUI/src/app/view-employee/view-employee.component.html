@@ -1,0 +1,53 @@
+<div class="container-xl">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-6">
+            <h4><b>View Employee</b></h4>
+          </div>
+          <div class="col-sm-6">
+            <a href="#" routerLink="/Home" class="btn btn-success back"><i class='fas fa-arrow-circle-left'></i> &nbsp;Back</a>
+          </div>
+        </div>
+      </div>       
+      <table class="table table-striped table-hover table-bordered table-content">
+        <tbody>
+          <tr>
+            <td>
+              <label><b>Name</b></label>
+            </td>
+            <td>
+              <span>{{ employeeDetail.name }}</span>              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label><b>Gender</b></label>
+            </td>
+            <td>
+              <span>{{ employeeDetail.gender }}</span>              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label><b>Date of Birth</b></label>
+            </td>
+            <td>
+              <span>{{ employeeDetail.dob }}</span>              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label><b>Departement</b></label>
+            </td>
+            <td>
+              <span>{{ employeeDetail.departement }}</span>              
+            </td>
+          </tr>
+        </tbody>
+      </table>       
+    </div>
+  </div>
+</div>
+

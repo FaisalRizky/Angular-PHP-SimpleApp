@@ -1,0 +1,84 @@
+<div class="container-xl">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-6">
+            <h4><b>New Employee</b></h4>
+          </div>
+          <div class="col-sm-6">
+            <a href="#" routerLink="/Home" class="btn btn-success back"><i class='fas fa-arrow-circle-left'></i>
+              &nbsp;Back</a>
+          </div>
+        </div>
+      </div>
+      <form #employeeForm="ngForm">
+        <div class="table-content">
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="name" class="p-t-b-10">Name<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="name" required maxlength="255"
+                [(ngModel)]="addEmployeeForm.name" name="name" #name="ngModel" placeholder="Employee Name">
+              <div *ngIf="name.errors && isSubmitted" class="alert alert-danger validationError">
+                <div [hidden]="!name.errors?.['required']">
+                  Name is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="gender" class="p-t-b-10">Gender<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="gender" required maxlength="255"
+                [(ngModel)]="addEmployeeForm.gender" name="gender" #gender="ngModel" placeholder="Employee Gender">
+              <div *ngIf="gender.errors && isSubmitted" class="alert alert-danger validationError">
+                <div [hidden]="!gender.errors?.['required']">
+                  Gender is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label class="p-t-b-10">Birth Date<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="dob" required maxlength="255"
+                [(ngModel)]="addEmployeeForm.dob" name="dob" #dob="ngModel" placeholder="YYYY-MM-DD"
+                pattern="\d{4}-\d{2}-\d{2}">
+              <div *ngIf="dob.errors && isSubmitted" class="alert alert-danger validationError">
+                <div [hidden]="!dob.errors?.['required']">
+                  Birth Date is required
+                </div>
+                <div [hidden]="!dob.errors?.['touched'] && !dob.errors?.['pattern']">
+                  Birth Date is invalid format 'YYYY-mm-dd'.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label class="p-t-b-10">Departement<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="departement" required maxlength="255" 
+              [(ngModel)]="addEmployeeForm.departement" name="departement" #departement="ngModel" placeholder="Employee Departement">
+              <div *ngIf="departement.errors && isSubmitted" class="alert alert-danger validationError">
+                <div [hidden]="!departement.errors?.['required']">
+                  Departement is required
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="table-footer">
+          <button class="btn btn-success" (click)="AddEmployee(employeeForm.form.valid)">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
